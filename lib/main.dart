@@ -1,9 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:mentor/logic/counter%20cubit/counter_cubit.dart';
-import 'package:mentor/presentation/views/test.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:hive_flutter/adapters.dart';
+import 'package:mentor/config/strings.dart';
+import 'package:mentor/presentation/views/home.dart';
 
-void main() {
+import 'generated/l10n.dart';
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Hive.initFlutter();
+  await Hive.openBox(box);
   runApp(const MyApp());
 }
 
@@ -12,16 +18,28 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => CounterCubit(),
-      child: MaterialApp(
-        title: 'Flutter Demo',
-        theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-          useMaterial3: true,
-        ),
-        home: const TestView(),
-      ),
+    return ValueListenableBuilder(
+      valueListenable: Hive.box(box).listenable(),
+      builder: (BuildContext context, box, Widget? child) {
+        bool isDarkMode = box.get(darkModeValue, defaultValue: false);
+        String isArabic = box.get(languageValue, defaultValue: "en");
+        return MaterialApp(
+          debugShowCheckedModeBanner: false,
+          locale: Locale(isArabic),
+          localizationsDelegates: const [
+            S.delegate,
+            GlobalMaterialLocalizations.delegate,
+            GlobalWidgetsLocalizations.delegate,
+            GlobalCupertinoLocalizations.delegate,
+          ],
+          supportedLocales: S.delegate.supportedLocales,
+          title: 'Flutter Demo',
+          themeMode: isDarkMode ? ThemeMode.dark : ThemeMode.light,
+          theme: ThemeData.light(useMaterial3: true),
+          darkTheme: ThemeData.dark(useMaterial3: true),
+          home: const HomeScreen(),
+        );
+      },
     );
   }
 }
