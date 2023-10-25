@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:hive_flutter/adapters.dart';
+import 'package:mentor/config/app_router.dart';
 import 'package:mentor/config/strings.dart';
-import 'package:mentor/presentation/views/home.dart';
 
 import 'generated/l10n.dart';
 
@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
       builder: (BuildContext context, box, Widget? child) {
         bool isDarkMode = box.get(darkModeValue, defaultValue: false);
         String isArabic = box.get(languageValue, defaultValue: "en");
-        return MaterialApp(
+        return MaterialApp.router(
           debugShowCheckedModeBanner: false,
           locale: Locale(isArabic),
           localizationsDelegates: const [
@@ -33,11 +33,11 @@ class MyApp extends StatelessWidget {
             GlobalCupertinoLocalizations.delegate,
           ],
           supportedLocales: S.delegate.supportedLocales,
-          title: 'Flutter Demo',
+          title: 'Nasa',
           themeMode: isDarkMode ? ThemeMode.dark : ThemeMode.light,
           theme: ThemeData.light(useMaterial3: true),
           darkTheme: ThemeData.dark(useMaterial3: true),
-          home: const HomeScreen(),
+          routerConfig: AppRouter.appRouter,
         );
       },
     );
