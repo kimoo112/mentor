@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:mentor/WebServices/web_services.dart';
 
 class NewsScreen extends StatelessWidget {
   const NewsScreen({Key? key}) : super(key: key);
@@ -17,8 +16,6 @@ class NewsScreen extends StatelessWidget {
               context.pop();
             },
           ),
-         
-         
         ],
       ),
     ));
