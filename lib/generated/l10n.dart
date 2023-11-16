@@ -59,6 +59,56 @@ class S {
       args: [],
     );
   }
+
+  /// `There is No Mars Photos`
+  String get isEmpty {
+    return Intl.message(
+      'There is No Mars Photos',
+      name: 'isEmpty',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Pick Time`
+  String get pickTime {
+    return Intl.message(
+      'Pick Time',
+      name: 'pickTime',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `The SOL : `
+  String get theSol {
+    return Intl.message(
+      'The SOL : ',
+      name: 'theSol',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Earth Date : `
+  String get earthDate {
+    return Intl.message(
+      'Earth Date : ',
+      name: 'earthDate',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `The CAMERA : `
+  String get theCamera {
+    return Intl.message(
+      'The CAMERA : ',
+      name: 'theCamera',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

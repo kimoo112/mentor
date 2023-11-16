@@ -1,7 +1,7 @@
 import 'package:connectivity_plus/connectivity_plus.dart';
-import 'package:mentor/config/utils/hive_managment.dart';
-import 'package:mentor/data/WebServices/web_services.dart';
-import 'package:mentor/model/mars_photo.dart';
+import '../../config/utils/hive_managment.dart';
+import '../WebServices/web_services.dart';
+import '../../model/mars_photo.dart';
 
 class Repository {
   late WebServices _webServices;

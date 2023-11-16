@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:hive_flutter/adapters.dart';
-import 'package:mentor/config/app_router.dart';
-import 'package:mentor/config/utils/strings.dart';
-import 'package:mentor/model/mars_photo.dart';
 
+import 'config/app_router.dart';
+import 'config/utils/strings.dart';
 import 'generated/l10n.dart';
+import 'model/mars_photo.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -39,8 +39,12 @@ class MyApp extends StatelessWidget {
           supportedLocales: S.delegate.supportedLocales,
           title: 'Nasa',
           themeMode: isDarkMode ? ThemeMode.dark : ThemeMode.light,
-          theme: ThemeData.light(useMaterial3: true),
-          darkTheme: ThemeData.dark(useMaterial3: true),
+          theme: ThemeData.light(
+            useMaterial3: true,
+          ),
+          darkTheme: ThemeData.dark(
+            useMaterial3: true,
+          ),
           routerConfig: AppRouter.appRouter,
         );
       },

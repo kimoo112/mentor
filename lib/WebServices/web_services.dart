@@ -39,7 +39,7 @@ class WebServices {
         _baseUrl,
         options: Options(method: "get"),
         queryParameters: {
-          "earth_date": DateTime(2015),
+          "earth_date": earthDate,
           "api_key" : _apiKey,
         },
       );

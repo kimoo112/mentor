@@ -22,6 +22,11 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "earthDate": MessageLookupByLibrary.simpleMessage("تاريخ الأرض : "),
+        "isEmpty": MessageLookupByLibrary.simpleMessage("لا يوجد صور للمريخ"),
+        "pickTime": MessageLookupByLibrary.simpleMessage("اختر الوقت"),
+        "theCamera": MessageLookupByLibrary.simpleMessage("نوع الكاميرا : "),
+        "theSol": MessageLookupByLibrary.simpleMessage("اليوم على المريخ : "),
         "title": MessageLookupByLibrary.simpleMessage("مرحبا ناسا")
       };
 }

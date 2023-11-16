@@ -39,16 +39,16 @@ class WebServices {
         _baseUrl,
         options: Options(method: "get"),
         queryParameters: {
-          "earth_date": DateTime(2015),
-          "api_key" : _apiKey,
+          "earth_date": earthDate,
+          "api_key": _apiKey,
         },
       );
       debugPrint(response.statusCode.toString());
       debugPrint(earthDate.toString());
       debugPrint(response.data.toString());
       return response.data["photos"].cast<Map<String, dynamic>?>();
-    } catch(e){
-      if(e is DioException){
+    } catch (e) {
+      if (e is DioException) {
         debugPrint("dio error: ${e.message}");
       } else {
         debugPrint("Normal Error: ${e.toString()}");

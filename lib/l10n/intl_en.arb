@@ -1,3 +1,9 @@
 {
-    "title": "Hello Nasa"
+    "title": "Hello Nasa",
+    "isEmpty": "There is No Mars Photos",
+    "pickTime": "Pick Time",
+    "theSol": "The SOL : ",
+    "earthDate": "Earth Date : ",
+    "theCamera": "The CAMERA : "
+
 }
